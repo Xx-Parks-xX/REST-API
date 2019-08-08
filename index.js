@@ -1,10 +1,8 @@
-// MODULES [install express, ejs, mongoose, body-parser with npm]
+// MODULES [install express, mongoose with npm]
 // Express
 var express = require('express');
 // Mongoose
 var mongoose = require("mongoose");
-//body-parser
-var bodyParser = require("body-parser");
 
 // DATABASE CONEXION [install MongoDB and create yourdatabase]
 mongoose.connect("mongodb://localhost:27017/yourdatabase", { useNewUrlParser: true });
@@ -42,20 +40,11 @@ var app = express();
 
 var MyRouter = express.Router();
 
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(bodyParser.json());
-
 // ROUTES
-// home
-MyRouter.route('/')
-.all(function(req, res){
-	res.render('home.ejs');
-});
-
 // starships
 MyRouter.route('/starships')
 // GET, get all starships
-.get(function(req,res){ 
+.get(function(req,res){
 	starship_model.find(function(err, starships){
         if(err)res.send(err);
         res.json(starships);
