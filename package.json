@@ -9,6 +9,7 @@
   "author": "Kévin Séguin <kevin.seguin.9@gmail.com>",
   "license": "ISC",
   "dependencies": {
+    "body-parser": "^1.19.0",
     "express": "^4.17.1",
     "mongoose": "^5.6.7"
   }

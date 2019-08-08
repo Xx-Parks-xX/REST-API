@@ -1,8 +1,10 @@
-// MODULES [install express, mongoose with npm]
+// MODULES [install express, mongoose and body-parser with npm]
 // Express
 var express = require('express');
 // Mongoose
 var mongoose = require("mongoose");
+// Body-parser (Used for request's body when html form is used)
+var bodyParser = require("body-parser");
 
 // DATABASE CONEXION [install MongoDB and create yourdatabase]
 mongoose.connect("mongodb://localhost:27017/yourdatabase", { useNewUrlParser: true });
@@ -37,6 +39,8 @@ var spaceman_model = mongoose.model('spacemans', spaceman_schema);
 
 // ENVIRONMENT
 var app = express();
+app.use(bodyParser.urlencoded({ extended: false }));															//
+app.use(bodyParser.json());
 
 var MyRouter = express.Router();
 
